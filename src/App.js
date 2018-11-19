@@ -3,6 +3,21 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  render () {
+    return (
+      <div>Hello App</div>
+    )
+  }
+}
+export default App;
+
+
+
+
+
+/*
+class App extends Component {
   render() {
     return (
       <div className="App">
@@ -26,3 +41,4 @@ class App extends Component {
 }
 
 export default App;
+*/
