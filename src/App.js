@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import './components/Map'
+//import './components/Map'
+import Map from './components/Map'
 
 class App extends Component {
 
   state = {};
 
-  render () {
+
+  render() {
     return (
       <div>Hello App
-        <div id='map'>
-          <Map/>
-        </div>
+          <Map />
       </div>
     )
   }
