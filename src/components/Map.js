@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Script from 'react-load-script';
 
+
+
+
 class Map extends Component {
     state = {};
 
@@ -19,12 +22,12 @@ class Map extends Component {
     
 
         return (
-            <Script
+            <Script>
       url="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBz491EHlYacMDqaP4b_nHSskvEfzLxj7c&callback=initMap"
       onCreate={this.handleScriptCreate.bind(this)}
       onError={this.handleScriptError.bind(this)}
       onLoad={this.handleScriptLoad.bind(this)}
-    />
+      </Script>
     
         )
         
