@@ -8,9 +8,9 @@ class Map extends Component {
     render() {
       return(
         <div>
-          <Map initialCenter={lat: 12345, lng: 678910} zoom={13}/>
+          <Map initialCenter={{lat: 40.7713024, lng: -73.9632393}} zoom={13}/>
         </div>
     )
   }
-  
-  export default GoogleApiWrapper({ apiKey: "AIzaSyBz491EHlYacMDqaP4b_nHSskvEfzLxj7c" })(DisplayMap);
+}
+  export default Map({ apiKey: "AIzaSyBz491EHlYacMDqaP4b_nHSskvEfzLxj7c" })(Map);
