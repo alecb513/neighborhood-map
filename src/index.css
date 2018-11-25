@@ -6,9 +6,25 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+#Menu {
+  position: absolute;
+  width: 25%;
+  min-width: 75px;
+  height: 100%;
+  background-color: rgba(45, 45, 45, 0.9);
+  z-index: 100;
+}
+.menu-item {
+  background-color: rgba(45, 45, 45, 0.9);
+  color: white;
 }
