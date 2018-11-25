@@ -23,9 +23,7 @@ class Marker extends Component {
 
         return (
             <div>
-{Marker}
-
-
+                {Marker}
             </div>
         )
     }

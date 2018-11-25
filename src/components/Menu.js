@@ -4,8 +4,7 @@ class Menu extends Component {
 
     render() {
 
-      
-
+    
         return (
             <div id='Menu'>
                 <input className='menu-item'type='text'></input>
