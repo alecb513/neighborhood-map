@@ -1,31 +1,42 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker
+} from "react-google-maps";
+import { renderComponent } from 'recompose'; //<= WAS IN TURORIAL BUT NOT WORKING
+
+const MyMapComponent = withScriptjs(
+  withGoogleMap(props => (
+    <GoogleMap
+      defaultZoom={8}
+      zoom={props.zoom}
+      defaultCenter={{ lat: -34.397, lng: 150.644 }}
+      center={props.center}
+    >
+      {props.markers && 
+      props.markers
+      .filters(marker => marker.isVisible)
+      .map((marker, idx) => (
+        <Marker key={idx} position={{ lat: marker.lat, lng: marker.lng }} />
+      ))}
+
+    </GoogleMap>
+  ))
+);
 
 
-class DisplayMap extends Component {
+export default class Map extends Component {
 
   render() {
-    
-
-    
-
-
-
-    const style = {
-      height: '100%',
-      width: '100%'
-    }
-
-    return (
-      <div>
-        <Map
-          google={this.props.google}
-          initialCenter={{ lat: 40.7713024, lng: -73.9632393 }}
-          zoom={13}
-          style={style}>
-        </Map>
-      </div>
-    )
+    return < MyMapComponent
+      {...this.props}
+      isMarkerShown
+      googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBz491EHlYacMDqaP4b_nHSskvEfzLxj7c"
+      loadingElement={< div style={{ height: `100%` }} />}
+      containerElement={< div style={{ height: `400px` }} />}
+      mapElement={< div style={{ height: `100%` }} />}
+    />
   }
 }
-export default GoogleApiWrapper({ apiKey: "AIzaSyBz491EHlYacMDqaP4b_nHSskvEfzLxj7c" })(DisplayMap);
