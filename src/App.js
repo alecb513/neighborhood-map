@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-//import './components/Map'
+
 import Map from './components/Map';
-//import Menu from './components/Menu';
 import Menu from './components/Menu';
-import Locations from './components/Locations';
+
+import Marker from './components/Marker';
+
 
 
 class App extends Component {
@@ -15,9 +16,11 @@ class App extends Component {
   render() {
     return (
       <div>
-         {/* <Locations/> */}
          <Menu/>
+         
           <Map/>
+          <Marker/>
+          
       </div>
     )
   }
