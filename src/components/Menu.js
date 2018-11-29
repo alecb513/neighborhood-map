@@ -26,7 +26,7 @@ class Menu extends Component {
               marginTop: "1.5rem"
             }}>
             {this.props.filteredVenues.map(venue => {
-              console.log(venue);
+              //console.log(venue);
               return <li key={venue.name}>{venue.name}</li>;
             })}
           </ul>

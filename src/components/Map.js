@@ -3,7 +3,8 @@ import {
   withScriptjs,
   withGoogleMap,
   GoogleMap,
-  Marker
+  Marker,
+  InfoWindow
 } from "react-google-maps";
 //import { renderComponent } from 'recompose'; //<= WAS IN TURORIAL BUT NOT WORKING
 
@@ -17,7 +18,14 @@ const MyMapComponent = withScriptjs(
         props.markers
           .filter(marker => marker.isVisible)
           .map((marker, idx) => (
-            <Marker key={idx} position={{ lat: marker.lat, lng: marker.lng }} />
+            <Marker key={idx} position={{ lat: marker.lat, lng: marker.lng }} onClick={() => props.handleMarkerClick(marker)} >
+
+              {marker.isOpen && (
+                <InfoWindow>
+                  <p>Hi</p>
+                </InfoWindow>
+              )}
+            </Marker>
           ))}
     </GoogleMap>
   ))
