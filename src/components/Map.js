@@ -16,7 +16,7 @@ const MyMapComponent = withScriptjs(
       center={props.center}
     >
       {props.markers && 
-       props.markers
+       markers
       .filter(marker => marker.isVisible)
       .map((marker, idx) => (
         

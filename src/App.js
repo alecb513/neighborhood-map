@@ -26,8 +26,8 @@ class App extends Component {
        const {center} = results.response.geocode.feature.geometry;
        const { markers} = venues.map(venue => {
          return {
-           //lat: venue.location.lat.toFixed(),
-           //lng: venue.location.lng.toFixed(),
+           lat: venue.location.lat,
+           lng: venue.location.lng,
            isOpen: false,
            isVisible:true,
          };
