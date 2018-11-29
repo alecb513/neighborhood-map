@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-
 import Map from './components/Map';
-//import Menu from './components/Menu';
-
 import SquareAPI from "./API/";
-
-
 
 
 class App extends Component {
@@ -21,9 +16,6 @@ class App extends Component {
      }
    }
 
-  
-
-
    componentDidMount(){
      SquareAPI.search({
        near: "New York, NY",
@@ -34,8 +26,8 @@ class App extends Component {
        const {center} = results.response.geocode.feature.geometry;
        const { markers} = venues.map(venue => {
          return {
-           lat: venue.location.lat,
-           lng: venue.location.lng,
+           //lat: venue.location.lat.toFixed(),
+           //lng: venue.location.lng.toFixed(),
            isOpen: false,
            isVisible:true,
          };
@@ -50,6 +42,7 @@ class App extends Component {
       <div className="App">
         
           <Map{...this.state}/>
+         
       </div>
     )
   }
