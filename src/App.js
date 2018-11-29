@@ -1,53 +1,55 @@
-import React, { Component } from 'react';
-import './App.css';
-import Map from './components/Map';
-import SquareAPI from "./API/";
+import React, { Component } from "react";
+import "./App.css";
 
+import Map from "./components/Map";
+import Menu from "./components/Menu";
+
+import SquareAPI from "./API/index";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      venues: [],
+      filteredVenues: [],
+      markers: [],
+      center: [],
+      zoom: 14
+    };
+  }
 
-   constructor(){
-     super();
-     this.state = {
-       venues:[],
-       markers:[],
-       center: [],
-       zoom: 12
-     }
-   }
-
-   componentDidMount(){
-     SquareAPI.search({
-       near: "New York, NY",
-       query: "Pizza",
-       limit: 10
-     }).then(results => {
-       const {venues} = results.response;
-       const {center} = results.response.geocode.feature.geometry;
-       const { markers} = venues.map(venue => {
-         return {
-           lat: venue.location.lat,
-           lng: venue.location.lng,
-           isOpen: false,
-           isVisible:true,
-         };
-       });
-       this.setState({venues,center, markers});
-       console.log(results);
-     });
-   }
+  componentWillMount = () => {
+    SquareAPI.search({
+      near: "New York, NY",
+      query: "Pizza",
+      limit: 10
+    }).then(results => {
+      console.log(results);
+      const { venues } = results.response;
+      console.log(venues);
+      const { center } = results.response.geocode.feature.geometry;
+      console.log(center);
+      const markers = venues.map(venue => {
+        return {
+          lat: venue.location.lat,
+          lng: venue.location.lng,
+          isOpen: false,
+          isVisible: true
+        };
+      });
+      this.setState({ venues, center, markers }, () =>
+        this.setState({ filteredVenues: venues })
+      );
+    });
+  };
 
   render() {
     return (
       <div className="App">
-        
-          <Map{...this.state}/>
-         
+        <Menu filteredVenues={this.state.filteredVenues} />
+        <Map {...this.state} />
       </div>
-    )
+    );
   }
 }
 export default App;
-
-
-
