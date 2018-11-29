@@ -5,7 +5,7 @@ import {
   GoogleMap,
   Marker
 } from "react-google-maps";
-import { renderComponent } from 'recompose'; //<= WAS IN TURORIAL BUT NOT WORKING
+//import { renderComponent } from 'recompose'; //<= WAS IN TURORIAL BUT NOT WORKING
 
 const MyMapComponent = withScriptjs(
   withGoogleMap(props => (
@@ -16,7 +16,7 @@ const MyMapComponent = withScriptjs(
       center={props.center}
     >
       {props.markers && 
-      props.markers
+       props.markers
       .filters(marker => marker.isVisible)
       .map((marker, idx) => (
         <Marker key={idx} position={{ lat: marker.lat, lng: marker.lng }} />

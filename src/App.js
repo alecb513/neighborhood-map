@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Map from './components/Map';
-import Menu from './components/Menu';
+//import Menu from './components/Menu';
 
 import SquareAPI from "./API/";
 
@@ -32,7 +32,7 @@ class App extends Component {
      }).then(results => {
        const {venues} = results.response;
        const {center} = results.response.geocode.feature.geometry;
-       const { markers} = venue.map(venue => {
+       const { markers} = venues.map(venue => {
          return {
            lat: venue.location.lat,
            lng: venue.location.lng,
@@ -47,7 +47,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         
           <Map{...this.state}/>
       </div>
